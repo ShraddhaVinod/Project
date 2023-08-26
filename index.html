@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><h3>Room Shuffling Data</h3></title>
+    <style>
+        body{
+            display: flex;
+            justify-content: space-between;
+            font-family:Arial, Helvetica, sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color:rgb(182, 216, 247);
+            position:absolute;
+        }
+        .container{
+            width:fit-content;
+            margin:0px;
+            padding: 10px;
+        }
+        #room{
+            width: 100%;
+            height: 5px;
+             background-color: aliceblue; 
+            position: fixed;
+            top:0;
+            left: 0;
+            z-index: 500;
+        }
+        #room-shuffle{
+            width: 0;
+            height: 100%;
+        }
+        .header{
+            text-align:left;
+            margin: 30px;
+            color:black;
+        }
+        .main-body{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        .group-div{
+            text-align: center;
+            margin: 10px 20px;
+            padding: 20px;
+            flex-basis: calc(30% - 40px);
+            border-radius: 2px;
+            background-color: rgb(156, 245, 215);
+            border: 2px solid black;
+        }
+        .group-div table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .group-div td{
+            border: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+        .group-div td.letter{
+            text-align: center;
+            font-weight: unset;
+        }
+        .group-div td.number{
+            text-align: right;
+        }
+        .Room-number {
+            display: inline-block;
+          font-size: 15px;
+         font-weight: bold;
+         padding: 8px;
+          background-color: aqua;
+           border: 2px solid black; 
+          box-sizing: border-box; 
+        }
+        .Buttons{
+            position:fixed;
+            bottom: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        #ShuffleButton,
+        #DownloadButton{
+            background-color:rgb(27, 164, 209);
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 15px;
+            border-radius: 3px;
+            cursor:pointer;
+            margin-bottom: 8px;
+        }
+        #ShuffleButton:hover,
+        #DownloadButton:hover{
+            background-color: blueviolet;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1 class="header">Room Shuffling Data</h1>
+    <div id="room" style="display: none;">
+    <div id="room-shuffle"></div>
+    </div>
+    <div class="main-body" id="app">
+        <div class="group-div">
+        <p class="Room-number">Room no. 1</p>
+        <table>
+            <tr>
+                <td class="letter">A</td>
+                <td class="number">1</td>
+                <td>Shraddha Vinod Gawande</td>
+            </tr>
+            <tr>
+                <td class="letter">B</td>
+                <td class="number">1</td>
+                <td>Shubhangi Prakash Dhage</td>
+            </tr>
+            <tr>
+                <td class="letter">C</td>
+                <td class="number">3</td>
+                <td>Anuradha Ananta Aswar</td>
+            </tr>
+            </table>
+       </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 2</p>
+            <table>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="number">1</td>
+                    <td>Vaishnavi Siddheshwar Paropate</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Snehal Anil Yemurle</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Dhanashri Narayan Bilbile</td>
+                </tr>
+            </table>
+        </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 3</p>
+            <table>
+                <tr>
+                    <td class="letter-">A</td>
+                    <td class="number">1</td>
+                    <td>Amruta Sewakram Bagde</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Nidhi Sewakram Bagde</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Lalita Madan Lanje</td>
+                </tr>
+            </table>
+        </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 4</p>
+            <table>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="number">1</td>
+                    <td>Amruta Sewakram Bagde</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Nidhi Sewakram Bagde</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Lalita Madan Lanje</td>
+                </tr>
+            </table>
+        </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 5</p>
+            <table>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="number">1</td>
+                    <td>Amruta Sewakram Bagde</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Nidhi Sewakram Bagde</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Lalita Madan Lanje</td>
+                </tr>
+            </table>
+        </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 6</p>
+            <table>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="number">1</td>
+                    <td>Amruta Sewakram Bagde</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Nidhi Sewakram Bagde</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Lalita Madan Lanje</td>
+                </tr>
+            </table>
+        </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 7</p>
+            <table>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="number">1</td>
+                    <td>Vaishnavi Sunil Kale</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Nikita Tulshidas Dagwar</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Kiran Vijay Bramhane</td>
+                </tr>
+            </table>
+        </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 8</p>
+            <table>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="number">1</td>
+                    <td>Priya Ganeshrao Sadar</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Chhamika Vilasrao Kutemate</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Puja Anurag Ubarhande</td>
+                </tr>
+            </table>
+        </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 9</p>
+            <table>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="number">1</td>
+                    <td>Jyoti Bhushan Bhasme</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Aditi Prashant Dahake</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Shweta Vilasrao Darwai</td>
+                </tr>
+            </table>
+        </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 10</p>
+            <table>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="number">1</td>
+                    <td>Sakshi Govardhan Mankar</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Janhavi Vilas Dhok</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Shweta Ramchandra Jumde</td>
+                </tr>
+            </table>
+        </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 11</p>
+            <table>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="number">1</td>
+                    <td>Lina Raju Barve</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Mansi Manoj Sakhare</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Sakshi Badusing Wadte</td>
+                </tr>
+            </table>
+        </div>
+        <div class="group-div">
+            <p class="Room-number">Room no. 12</p>
+            <table>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="number">1</td>
+                    <td>Anuja Bhausaheb Raut</td>
+                </tr>
+                <tr>
+                    <td class="letter">B</td>
+                    <td class="number">2</td>
+                    <td>Amisha Santosh Sarkate</td>
+                </tr>
+                <tr>
+                    <td class="letter">C</td>
+                    <td class="number">3</td>
+                    <td>Rakhi Dilip Thoke</td>
+                </tr>
+            </table>
+        </div>
+        <div class="Buttons">
+            <button id="ShuffleButton">Shuffle</button>
+            <button id="DownloadButton">Download</button>
+        </div>
+            <script>
+            var downloadButton = document.getElementById("DownloadButton");
+            downloadButton.addEventListener("click", function() {
+                var sheetData = generateSheetData(); 
+                var blob = new Blob([sheetData], { type: "application/octet-stream" });
+
+                var url = URL.createObjectURL(blob);
+        
+                var downloadLink = document.createElement("a");
+                downloadLink.href = url;
+                downloadLink.download = "sheet.xlsx"; 
+                downloadLink.style.display = "none";
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+        
+                document.body.removeChild(downloadLink);
+                URL.revokeObjectURL(url);
+            });
+        
+            function generateSheetData() { 
+                 var data = "your sheet data goes here";
+                return data;
+            }
+        </script> 
+         
+
+    </div>
+ </div>
+</body>
+</html>
